@@ -8,11 +8,11 @@
   "scripts": {},
   "dependencies": {
     "@theme-ui/css": "workspace:^",
-    "polished": "^4.0.5"
+    "polished": "^4.3.1"
   },
   "devDependencies": {
-    "@theme-ui/test-utils": "workspace:^",
     "@theme-ui/core": "workspace:^",
+    "@theme-ui/test-utils": "workspace:^",
     "@theme-ui/theme-provider": "workspace:^"
   },
   "publishConfig": {

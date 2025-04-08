@@ -1,6 +1,6 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { Box, BoxProps } from './Box'
+import { Box, type BoxProps } from './Box'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -12,7 +12,7 @@ export type AlertProps = BoxProps
  * Alert variants can be defined in `theme.alerts`.
  * The Alert component uses `theme.alerts.primary` as its default variant.
  */
-export const Alert: ForwardRef<HTMLDivElement, AlertProps> = React.forwardRef(
+export const Alert: ForwardRef<HTMLDivElement, AlertProps> = forwardRef(
   function Alert(props, ref) {
     return (
       <Box

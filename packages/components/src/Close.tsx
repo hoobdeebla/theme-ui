@@ -1,6 +1,6 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { IconButton, IconButtonProps } from './IconButton'
+import { IconButton, type IconButtonProps } from './IconButton'
 import type { ForwardRef } from './types'
 
 export const CloseIcon = (
@@ -25,8 +25,8 @@ export interface CloseProps extends Omit<IconButtonProps, 'children'> {}
  * Close component variants can be defined in the theme.buttons object.
  * The Close component uses theme.buttons.close as its default variant style.
  */
-export const Close: ForwardRef<HTMLButtonElement, CloseProps> =
-  React.forwardRef(function Close({ size = 32, ...props }, ref) {
+export const Close: ForwardRef<HTMLButtonElement, CloseProps> = forwardRef(
+  function Close({ size = 32, ...props }, ref) {
     return (
       <IconButton
         ref={ref}
@@ -38,4 +38,5 @@ export const Close: ForwardRef<HTMLButtonElement, CloseProps> =
         children={CloseIcon}
       />
     )
-  })
+  }
+)

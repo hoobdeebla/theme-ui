@@ -1,6 +1,6 @@
-import { Theme } from '../src'
+import type { Theme } from '../src'
 import { makeColorsScale, makeStyles, makeTheme } from '../src/utils'
-import { AssertTrue, expecter, IsExact } from '@theme-ui/test-utils'
+import { type AssertTrue, expecter, type IsExact } from '@theme-ui/test-utils'
 
 const symbolPretendingToBeTheme = Symbol() as Theme
 

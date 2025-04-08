@@ -1,13 +1,13 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps, BoxProps } from './Box'
+import { Box, type BoxOwnProps, type BoxProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export interface DonutProps
   extends Assign<
     Omit<
-      React.ComponentPropsWithRef<'svg'>,
+      ComponentPropsWithRef<'svg'>,
       'opacity' | 'color' | 'css' | 'sx' | 'max' | 'min'
     >,
     BoxOwnProps
@@ -22,7 +22,7 @@ export interface DonutProps
  * Single value SVG donut chart
  * @see https://theme-ui.com/components/donut/
  */
-export const Donut: ForwardRef<SVGSVGElement, DonutProps> = React.forwardRef(
+export const Donut: ForwardRef<SVGSVGElement, DonutProps> = forwardRef(
   function Donut(
     {
       size = 128,

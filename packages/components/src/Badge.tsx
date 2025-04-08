@@ -1,12 +1,12 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { Box, BoxProps } from './Box'
+import { Box, type BoxProps } from './Box'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export type BadgeProps = BoxProps
 
-export const Badge: ForwardRef<HTMLDivElement, BadgeProps> = React.forwardRef(
+export const Badge: ForwardRef<HTMLDivElement, BadgeProps> = forwardRef(
   function Badge(props, ref) {
     return (
       <Box

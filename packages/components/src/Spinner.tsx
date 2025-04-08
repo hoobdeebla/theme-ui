@@ -1,13 +1,13 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 import type { ThemeUICSSObject } from '@theme-ui/css'
 
-import { Box, BoxOwnProps, BoxProps } from './Box'
+import { Box, type BoxOwnProps, type BoxProps } from './Box'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export interface SpinnerProps
   extends Omit<
-      React.ComponentPropsWithRef<'svg'>,
+      ComponentPropsWithRef<'svg'>,
       'opacity' | 'color' | 'css' | 'sx' | 'strokeWidth'
     >,
     BoxOwnProps {
@@ -17,8 +17,8 @@ export interface SpinnerProps
   duration?: number
 }
 
-export const Spinner: ForwardRef<SVGSVGElement, SpinnerProps> =
-  React.forwardRef(function Spinner(
+export const Spinner: ForwardRef<SVGSVGElement, SpinnerProps> = forwardRef(
+  function Spinner(
     {
       size = 48,
       strokeWidth = 4,
@@ -77,4 +77,5 @@ export const Spinner: ForwardRef<SVGSVGElement, SpinnerProps> =
         </circle>
       </Box>
     )
-  })
+  }
+)

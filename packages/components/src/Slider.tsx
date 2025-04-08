@@ -1,9 +1,9 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { ThemeUICSSObject } from '@theme-ui/css'
+import type { ThemeUICSSObject } from '@theme-ui/css'
 
-import { Box, BoxOwnProps } from './Box'
-import { Assign, ForwardRef } from './types'
+import { Box, type BoxOwnProps } from './Box'
+import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 const thumbStyle: ThemeUICSSObject = {
@@ -36,7 +36,7 @@ const sliderStyle: ThemeUICSSObject = {
 }
 
 export interface SliderProps
-  extends Assign<React.ComponentPropsWithRef<'input'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'input'>, BoxOwnProps> {}
 
 /**
  * Range input element
@@ -45,8 +45,8 @@ export interface SliderProps
  * The Slider component uses `theme.forms.slider` as its default variant style.
  * @see https://theme-ui.com/components/slider/
  */
-export const Slider: ForwardRef<HTMLInputElement, SliderProps> =
-  React.forwardRef(function Slider(props, ref) {
+export const Slider: ForwardRef<HTMLInputElement, SliderProps> = forwardRef(
+  function Slider(props, ref) {
     return (
       <Box
         ref={ref}
@@ -57,4 +57,5 @@ export const Slider: ForwardRef<HTMLInputElement, SliderProps> =
         {...__internalProps({ __themeKey: 'forms', __css: sliderStyle })}
       />
     )
-  })
+  }
+)

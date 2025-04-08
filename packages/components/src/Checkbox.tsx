@@ -1,8 +1,8 @@
-import React from 'react'
+import { Fragment, type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps } from './Box'
-import { SVG, SVGProps } from './SVG'
-import { Assign, ForwardRef } from './types'
+import { Box, type BoxOwnProps } from './Box'
+import { SVG, type SVGProps } from './SVG'
+import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 const CheckboxChecked = (props: SVGProps) => (
@@ -18,7 +18,7 @@ const CheckboxUnchecked = (props: SVGProps) => (
 )
 
 const CheckboxIcon = (props: SVGProps) => (
-  <React.Fragment>
+  <Fragment>
     <CheckboxChecked
       {...props}
       {...__internalProps({
@@ -41,11 +41,11 @@ const CheckboxIcon = (props: SVGProps) => (
         },
       })}
     />
-  </React.Fragment>
+  </Fragment>
 )
 
 export interface CheckboxProps
-  extends Assign<React.ComponentPropsWithRef<'input'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'input'>, BoxOwnProps> {}
 
 /**
  * Form checkbox input component
@@ -54,8 +54,8 @@ export interface CheckboxProps
  * component uses the `theme.forms.checkbox` variant by default.
  * @see https://theme-ui.com/components/checkbox/
  */
-export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> =
-  React.forwardRef(function Checkbox(
+export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> = forwardRef(
+  function Checkbox(
     { className, sx, variant = 'checkbox', children, ...props },
     ref
   ) {
@@ -101,4 +101,5 @@ export const Checkbox: ForwardRef<HTMLInputElement, CheckboxProps> =
         {children}
       </Box>
     )
-  })
+  }
+)

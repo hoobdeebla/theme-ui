@@ -1,9 +1,9 @@
 import {
-  ColorMode,
-  ColorModesScale,
+  type ColorMode,
+  type ColorModesScale,
   css,
-  Theme,
-  ThemeUICSSObject,
+  type Theme,
+  type ThemeUICSSObject,
 } from '@theme-ui/css'
 
 const toVarName = (key: string) => `--theme-ui-${key.replace('-__default', '')}`

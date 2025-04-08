@@ -1,0 +1,17 @@
+1.2G	node_modules/.pnpm
+  0B	node_modules/@types
+108K	node_modules/.bin
+  0B	node_modules/@preconstruct
+  0B	node_modules/@jest
+  0B	node_modules/@eslint
+  0B	node_modules/@typescript-eslint
+  0B	node_modules/@size-limit
+  0B	node_modules/@babel
+  0B	node_modules/@auto-it
+  0B	node_modules/@testing-library
+  0B	node_modules/@emotion
+  0B	node_modules/.cache
+  0B	node_modules/@nicolo-ribaudo
+  0B	node_modules/@rushstack
+  0B	node_modules/@eslint-community
+1.2G	node_modules

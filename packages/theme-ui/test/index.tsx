@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import React from 'react'
 import { matchers } from '@emotion/jest'
 import mockConsole from 'jest-mock-console'
 import { fireEvent, render, renderJSON } from '@theme-ui/test-utils'
@@ -12,7 +11,7 @@ import {
   ThemeUIProvider,
   jsx,
   BaseStyles,
-  Theme,
+  type Theme,
   __ThemeUIContext,
   useThemeUI,
 } from '../src/index'

@@ -1,4 +1,4 @@
-import { css, NestedScaleDict, Theme } from '../src'
+import { css, type NestedScaleDict, type Theme } from '../src'
 
 const theme: Theme = {
   colors: {

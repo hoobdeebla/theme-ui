@@ -1,7 +1,7 @@
 import { jsx } from '@theme-ui/core'
-import { ComponentType } from 'react'
-import { MDXComponents } from 'mdx/types'
-import { defaultMdxComponents, ThemedComponent, themed } from './Themed'
+import type { ComponentType } from 'react'
+import type { MDXComponents } from 'mdx/types'
+import { defaultMdxComponents, type ThemedComponent, themed } from './Themed'
 
 function wrapComponent(
   value: ComponentType<any> | string,

@@ -3,9 +3,9 @@ import type {
   ThemeUICSSObject,
   ThemeUIEmpty,
 } from '@theme-ui/css'
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { Box, BoxProps } from './Box'
+import { Box, type BoxProps } from './Box'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -50,7 +50,7 @@ export interface GridProps extends BoxProps {
  * CSS grid layout component to arrange direct child elements in a tiled grid layout.
  * @see https://theme-ui.com/components/grid
  */
-export const Grid: ForwardRef<HTMLDivElement, GridProps> = React.forwardRef(
+export const Grid: ForwardRef<HTMLDivElement, GridProps> = forwardRef(
   function Grid({ width, columns, gap = 3, repeat = 'fit', ...props }, ref) {
     const gridTemplateColumns = !!width
       ? widthToColumns(width, repeat)

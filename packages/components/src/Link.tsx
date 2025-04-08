@@ -1,18 +1,18 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps, BoxProps } from './Box'
+import { Box, type BoxOwnProps, type BoxProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export interface LinkProps
-  extends Assign<React.ComponentPropsWithRef<'a'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'a'>, BoxOwnProps> {}
 
 /**
  * Link variants can be defined in the `theme.links` object.
  * By default the Link component will use styles defined in `theme.styles.a`.
  * @see https://theme-ui.com/components/link
  */
-export const Link: ForwardRef<HTMLAnchorElement, LinkProps> = React.forwardRef(
+export const Link: ForwardRef<HTMLAnchorElement, LinkProps> = forwardRef(
   function Link(props, ref) {
     return (
       <Box

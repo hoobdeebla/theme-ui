@@ -4,7 +4,7 @@ import {
   // @ts-ignore
   jsxs as emotionJsxs,
 } from '@emotion/react/jsx-runtime'
-import { ThemeUIJSX } from './jsx-namespace'
+import type { ThemeUIJSX } from './jsx-namespace'
 import { parseProps } from './parseProps'
 import type { ElementType } from 'react'
 

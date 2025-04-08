@@ -3,10 +3,10 @@
  */
 
 import { ThemeProvider } from '@theme-ui/core'
-import { AssertTrue, IsExact, render } from '@theme-ui/test-utils'
+import { type AssertTrue, type IsExact, render } from '@theme-ui/test-utils'
 import { forwardRef } from 'react'
 
-import { Switch, SwitchProps } from '../src'
+import { Switch, type SwitchProps } from '../src'
 
 describe(Switch.name, () => {
   test('accepts forwarded ref', () => {

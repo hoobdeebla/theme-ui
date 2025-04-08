@@ -1,7 +1,7 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps } from './Box'
-import { get, ThemeUIStyleObject } from '@theme-ui/css'
+import { Box, type BoxOwnProps } from './Box'
+import { get, type ThemeUIStyleObject } from '@theme-ui/css'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -31,7 +31,7 @@ const defaultInputStyles: ThemeUIStyleObject = {
 }
 
 export interface InputProps
-  extends Assign<React.ComponentPropsWithRef<'input'>, BoxOwnProps> {
+  extends Assign<ComponentPropsWithRef<'input'>, BoxOwnProps> {
   autofillBackgroundColor?: string
 }
 
@@ -40,7 +40,7 @@ export interface InputProps
  * and the component uses the `theme.forms.input` variant by default.
  * @see https://theme-ui.com/components/input/
  */
-export const Input: ForwardRef<HTMLInputElement, InputProps> = React.forwardRef(
+export const Input: ForwardRef<HTMLInputElement, InputProps> = forwardRef(
   function Input({ sx, autofillBackgroundColor = 'background', ...rest }, ref) {
     return (
       <Box

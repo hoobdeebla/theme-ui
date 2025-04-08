@@ -1,10 +1,11 @@
-import { jsx, SxProp } from '@theme-ui/core'
+import { jsx, type SxProp } from '@theme-ui/core'
 import { css, get, Theme } from '@theme-ui/css'
 import {
   ComponentType,
   ReactNode,
   DetailedHTMLProps,
   ComponentProps,
+  type JSX,
 } from 'react'
 
 // mdx components
@@ -98,8 +99,8 @@ export type ThemedComponentsDict = {
   [K in ThemeUIMdxIntrinsics]: K extends keyof Aliases
     ? ThemedComponent<Aliases[K]>
     : K extends keyof JSX.IntrinsicElements
-    ? ThemedComponent<K>
-    : never
+      ? ThemedComponent<K>
+      : never
 }
 
 const createThemedComponent = <Name extends string>(

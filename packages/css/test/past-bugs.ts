@@ -1,4 +1,4 @@
-import { css, Theme, THEME_UI_DEFAULT_KEY } from '..'
+import { css, type Theme, THEME_UI_DEFAULT_KEY } from '..'
 
 // https://github.com/system-ui/theme-ui/issues/1439
 describe('theme scales, get and default object property (#1439)', () => {

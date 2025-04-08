@@ -1,11 +1,11 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps } from './Box'
+import { Box, type BoxOwnProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export interface HeadingProps
-  extends Assign<React.ComponentPropsWithRef<'h2'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'h2'>, BoxOwnProps> {}
 
 /**
  * Primitive heading component, defaults to <h2>.
@@ -14,8 +14,8 @@ export interface HeadingProps
  * The Heading component uses theme.text.heading as its default variant style.
  * @see https://theme-ui.com/components/heading
  */
-export const Heading: ForwardRef<HTMLHeadingElement, HeadingProps> =
-  React.forwardRef(function Heading(props, ref) {
+export const Heading: ForwardRef<HTMLHeadingElement, HeadingProps> = forwardRef(
+  function Heading(props, ref) {
     return (
       <Box
         ref={ref}
@@ -32,4 +32,5 @@ export const Heading: ForwardRef<HTMLHeadingElement, HeadingProps> =
         })}
       />
     )
-  })
+  }
+)

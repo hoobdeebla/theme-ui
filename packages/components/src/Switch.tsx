@@ -1,8 +1,8 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
 import type { ThemeUICSSObject } from '@theme-ui/css'
 
-import { Box, BoxOwnProps } from './Box'
+import { Box, type BoxOwnProps } from './Box'
 import { Label } from './Label'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
@@ -11,7 +11,7 @@ const GUTTER = 2
 const SIZE = 18
 
 export interface SwitchProps
-  extends Assign<React.ComponentPropsWithRef<'input'>, BoxOwnProps> {
+  extends Assign<ComponentPropsWithRef<'input'>, BoxOwnProps> {
   label?: string
 }
 
@@ -21,11 +21,8 @@ export interface SwitchProps
  * Switch variants can be defined in `theme.forms`
  * and the component uses the `theme.forms.switch` variant by default.
  */
-export const Switch: ForwardRef<HTMLInputElement, SwitchProps> =
-  React.forwardRef(function Switch(
-    { className, label, sx, variant = 'switch', ...rest },
-    ref
-  ) {
+export const Switch: ForwardRef<HTMLInputElement, SwitchProps> = forwardRef(
+  function Switch({ className, label, sx, variant = 'switch', ...rest }, ref) {
     const __css: ThemeUICSSObject = {
       position: 'relative',
       flexShrink: 0,
@@ -88,4 +85,5 @@ export const Switch: ForwardRef<HTMLInputElement, SwitchProps> =
         <span>{label}</span>
       </Label>
     )
-  })
+  }
+)

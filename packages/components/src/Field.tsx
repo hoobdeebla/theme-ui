@@ -1,9 +1,16 @@
-import React from 'react'
+import {
+  type ElementType,
+  type ComponentPropsWithRef,
+  type ComponentType,
+  type ForwardedRef,
+  type JSX,
+  forwardRef,
+} from 'react'
 
 import { Box } from './Box'
 import { Label } from './Label'
-import { Input, InputProps } from './Input'
-import { getMargin, MarginProps, omitMargin } from './util'
+import { Input, type InputProps } from './Input'
+import { getMargin, type MarginProps, omitMargin } from './util'
 
 export interface FieldOwnProps extends MarginProps {
   /**
@@ -16,8 +23,8 @@ export interface FieldOwnProps extends MarginProps {
   name?: string
 }
 
-export type FieldProps<T extends React.ElementType> = FieldOwnProps &
-  Omit<React.ComponentPropsWithRef<T>, 'as' | keyof FieldOwnProps> & {
+export type FieldProps<T extends ElementType> = FieldOwnProps &
+  Omit<ComponentPropsWithRef<T>, 'as' | keyof FieldOwnProps> & {
     /**
      * form control to render, default Input
      */
@@ -25,13 +32,13 @@ export type FieldProps<T extends React.ElementType> = FieldOwnProps &
   }
 
 export interface Field {
-  <T extends React.ElementType = React.ComponentType<InputProps>>(
+  <T extends ElementType = ComponentType<InputProps>>(
     props: FieldProps<T>
   ): JSX.Element
 }
 
-export const Field = React.forwardRef(function Field<
-  T extends React.ElementType = React.ComponentType<InputProps>
+export const Field = forwardRef(function Field<
+  T extends ElementType = ComponentType<InputProps>,
 >(
   {
     // if somebody specifies the generic parameter without passing `as` prop, they get Input anyway
@@ -41,7 +48,7 @@ export const Field = React.forwardRef(function Field<
     name,
     ...rest
   }: FieldProps<T>,
-  ref: React.ForwardedRef<unknown>
+  ref: ForwardedRef<unknown>
 ) {
   const fieldIdentifier = id || name
 
@@ -50,7 +57,7 @@ export const Field = React.forwardRef(function Field<
     name,
     id: fieldIdentifier,
     ...omitMargin(rest),
-  } as React.ComponentPropsWithRef<T>
+  } as ComponentPropsWithRef<T>
 
   return (
     <Box {...getMargin(rest)}>

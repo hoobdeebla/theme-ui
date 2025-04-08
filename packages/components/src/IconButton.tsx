@@ -1,11 +1,11 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps, BoxProps } from './Box'
+import { Box, type BoxOwnProps, type BoxProps } from './Box'
 import type { Assign, ForwardRef } from './types'
-import { __internalProps, __ThemeUIComponentsInternalProps } from './util'
+import { __internalProps, type __ThemeUIComponentsInternalProps } from './util'
 
 export interface IconButtonProps
-  extends Assign<React.ComponentPropsWithRef<'button'>, BoxOwnProps> {
+  extends Assign<ComponentPropsWithRef<'button'>, BoxOwnProps> {
   size?: number | string
 }
 
@@ -18,7 +18,7 @@ export interface IconButtonProps
  * @see https://theme-ui.com/components/icon-button
  */
 export const IconButton: ForwardRef<HTMLButtonElement, IconButtonProps> =
-  React.forwardRef(function IconButton(
+  forwardRef(function IconButton(
     { size = 32, ...props }: IconButtonProps,
     ref
   ) {

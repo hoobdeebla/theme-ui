@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef } from 'react'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import { Themed } from '@theme-ui/mdx'
 
@@ -22,7 +23,7 @@ const checkRanges = (range: number[], num: number) => {
   return false
 }
 
-type HighlightProps = React.ComponentPropsWithoutRef<typeof Highlight>
+type HighlightProps = ComponentPropsWithoutRef<typeof Highlight>
 // prism-react-renderer doesn't export `Token` type
 type Tokens = Parameters<HighlightProps['children']>[0]['tokens']
 type Token = Tokens[number][number]
@@ -81,9 +82,8 @@ export default function ThemeUIPrism({
     return tokensWithoutHighlightComments
   }
 
-  const isStartEndHighlighted = (index: number) => {
-    return checkRanges(startEndRangesToHighlight, index)
-  }
+  const isStartEndHighlighted = (index: number) =>
+    checkRanges(startEndRangesToHighlight, index)
 
   const isInlineHighlighted = (line: Token[]) => {
     const regex = new RegExp('// highlight-line$')
@@ -96,18 +96,17 @@ export default function ThemeUIPrism({
     return false
   }
 
-  const shouldHighlightLine = (line: Token[], index: number) => {
-    return isStartEndHighlighted(index) || isInlineHighlighted(line)
-  }
+  const shouldHighlightLine = (line: Token[], index: number) =>
+    isStartEndHighlighted(index) || isInlineHighlighted(line)
 
   const code =
     typeof children === 'string'
       ? children.trim()
       : typeof children === 'object' &&
-        'props' in children &&
-        typeof (children as any).props.children === 'string'
-      ? (children as any).props.children.trim()
-      : ''
+          'props' in children &&
+          typeof (children as any).props.children === 'string'
+        ? (children as any).props.children.trim()
+        : ''
 
   return (
     <Highlight
@@ -131,17 +130,13 @@ export default function ThemeUIPrism({
               }
               return (
                 <div {...lineProps}>
-                  {line.map((token, key) => {
-                    return (
-                      <span
-                        {...getTokenProps({ token, key })}
-                        key={key}
-                        sx={
-                          token.empty ? { display: 'inline-block' } : undefined
-                        }
-                      />
-                    )
-                  })}
+                  {line.map((token, key) => (
+                    <span
+                      {...getTokenProps({ token, key })}
+                      key={key}
+                      sx={token.empty ? { display: 'inline-block' } : undefined}
+                    />
+                  ))}
                 </div>
               )
             })}

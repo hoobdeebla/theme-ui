@@ -11,8 +11,9 @@
   "scripts": {},
   "devDependencies": {
     "@theme-ui/css": "workspace:^",
-    "babel-polyfill": "^6.26.0",
-    "execa": "^5.0.0"
+    "core-js": "^3.49.0",
+    "execa": "^9.6.1",
+    "regenerator-runtime": "^0.14.1"
   },
   "publishConfig": {
     "access": "public"

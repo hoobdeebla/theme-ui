@@ -54,11 +54,11 @@
     "react": ">=18"
   },
   "devDependencies": {
-    "@emotion/react": "^11.13.3",
+    "@emotion/react": "^11.14.0",
     "@theme-ui/test-utils": "workspace:^",
-    "@types/react": "^18.2.12",
-    "react": "^18.1.0",
-    "react-dom": "^18"
+    "@types/react": "^19.2.14",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   },
   "keywords": [
     "theme-ui",

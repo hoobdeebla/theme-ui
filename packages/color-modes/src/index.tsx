@@ -1,24 +1,25 @@
-import React, {
-  Dispatch,
+import {
+  type Dispatch,
+  type SetStateAction,
+  type ReactNode,
   useEffect,
   useLayoutEffect,
   useState,
   useMemo,
-  SetStateAction,
   useCallback,
 } from 'react'
 import {
   jsx,
-  ThemeUIContextValue,
+  type ThemeUIContextValue,
   useThemeUI,
   __ThemeUIInternalBaseThemeProvider as ThemeUIInternalBaseThemeProvider,
 } from '@theme-ui/core'
 import {
   get,
-  Theme,
-  ColorModesScale,
-  ColorMode,
-  NestedScale,
+  type Theme,
+  type ColorModesScale,
+  type ColorMode,
+  type NestedScale,
   css,
 } from '@theme-ui/css'
 import { Global } from '@emotion/react'
@@ -85,7 +86,7 @@ const TopLevelColorModeProvider = ({
   children,
 }: {
   outerCtx: ThemeUIContextValue
-  children: React.ReactNode
+  children: ReactNode
 }) => {
   const outerTheme = outerCtx.theme || {}
   const { initialColorModeName, useColorSchemeMediaQuery, useLocalStorage } =
@@ -202,7 +203,7 @@ const TopLevelColorModeProvider = ({
 
 export function useColorMode<T extends string = string>(): [
   T,
-  Dispatch<SetStateAction<T>>
+  Dispatch<SetStateAction<T>>,
 ] {
   const { colorMode, setColorMode } = useThemeUI()
 
@@ -213,7 +214,7 @@ export function useColorMode<T extends string = string>(): [
   // We're allowing the user to specify a narrower type for its color mode name.
   return [colorMode, setColorMode] as unknown as [
     T,
-    Dispatch<SetStateAction<T>>
+    Dispatch<SetStateAction<T>>,
   ]
 }
 
@@ -303,9 +304,7 @@ function useThemeWithAppliedColorMode({
 
 function GlobalColorStyles({ theme }: { theme: Theme }) {
   return jsx(Global, {
-    styles: () => {
-      return { html: __createColorStyles(theme) }
-    },
+    styles: () => ({ html: __createColorStyles(theme) }),
   })
 }
 
@@ -314,7 +313,7 @@ function NestedColorModeProvider({
   children,
 }: {
   outerCtx: ThemeUIContextValue
-  children: React.ReactNode
+  children: ReactNode
 }) {
   const newTheme = useThemeWithAppliedColorMode({
     outerTheme: outerCtx.theme,
@@ -362,11 +361,7 @@ function NestedColorModeProvider({
   )
 }
 
-export const ColorModeProvider = ({
-  children,
-}: {
-  children?: React.ReactNode
-}) => {
+export const ColorModeProvider = ({ children }: { children?: ReactNode }) => {
   const outerCtx = useThemeUI()
 
   const isTopLevelColorModeProvider =

@@ -1,6 +1,6 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { Box, BoxProps } from './Box'
+import { Box, type BoxProps } from './Box'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -13,10 +13,7 @@ export interface AspectRatioProps extends BoxProps {
  * @see https://theme-ui.com/components/aspect-ratio
  */
 export const AspectRatio: ForwardRef<HTMLDivElement, AspectRatioProps> =
-  React.forwardRef(function AspectRatio(
-    { ratio = 4 / 3, children, ...props },
-    ref
-  ) {
+  forwardRef(function AspectRatio({ ratio = 4 / 3, children, ...props }, ref) {
     return (
       <Box
         ref={ref}

@@ -1,6 +1,6 @@
 import { expecter } from '@theme-ui/test-utils'
 
-import { css, get, Theme } from '../src'
+import { css, get, type Theme } from '../src'
 
 const expectSnippet = expecter(`
   import { css } from './packages/css/src'

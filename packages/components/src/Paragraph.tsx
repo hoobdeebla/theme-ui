@@ -1,11 +1,11 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps } from './Box'
+import { Box, type BoxOwnProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export interface ParagraphProps
-  extends Assign<React.ComponentPropsWithRef<'p'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'p'>, BoxOwnProps> {}
 
 /**
  * Primitive typographic component.
@@ -15,7 +15,7 @@ export interface ParagraphProps
  * @see https://theme-ui.com/components/paragraph
  */
 export const Paragraph: ForwardRef<HTMLParagraphElement, ParagraphProps> =
-  React.forwardRef(function Paragraph(props, ref) {
+  forwardRef(function Paragraph(props, ref) {
     return (
       <Box
         ref={ref}

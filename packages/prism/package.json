@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@theme-ui/core": "workspace:^",
-    "prism-react-renderer": "^1.1.1"
+    "prism-react-renderer": "^2.4.1"
   },
   "peerDependencies": {
     "@theme-ui/mdx": "workspace:^",
@@ -33,11 +33,11 @@
   },
   "devDependencies": {
     "@theme-ui/mdx": "workspace:^",
-    "@types/react": "^18.2.12",
-    "param-case": "^4.0.0",
-    "postcss": "^8.1.10",
-    "postcss-js": "^3.0.3",
-    "react": "^18.1.0",
+    "@types/react": "^19.2.14",
+    "change-case": "^5.4.4",
+    "postcss": "^8.5.10",
+    "postcss-js": "^5.1.0",
+    "react": "^19.2.5",
     "theme-ui": "workspace:^"
   },
   "gitHead": "621199460fa3bdb0100748441e62517b7529b8c8"

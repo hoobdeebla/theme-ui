@@ -1,12 +1,12 @@
 import { getColor } from '@theme-ui/color'
-import { ComponentProps } from 'react'
-import { ResponsiveStyleValue } from 'theme-ui'
+import type { ComponentProps, ReactNode } from 'react'
+import type { ResponsiveStyleValue } from 'theme-ui'
 import { toHex } from './color'
 import { useTheme } from './context'
 
 export interface ColorSwatchProps extends ComponentProps<'div'> {
   color: string
-  name?: React.ReactNode
+  name?: ReactNode
   size?: ResponsiveStyleValue<string | number>
   label?: boolean
 }

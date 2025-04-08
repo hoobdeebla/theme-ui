@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useThemeUI } from '@theme-ui/core'
-import { Theme, defaultBreakpoints } from '@theme-ui/css'
+import { type Theme, defaultBreakpoints } from '@theme-ui/css'
 
 type defaultOptions = {
   defaultIndex?: number

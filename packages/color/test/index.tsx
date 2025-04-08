@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { Theme, ThemeUICSSObject } from '@theme-ui/css'
+import type { Theme, ThemeUICSSObject } from '@theme-ui/css'
 import { ThemeUIProvider } from '@theme-ui/theme-provider'
 import { render } from '@theme-ui/test-utils'
 import { matchers } from '@emotion/jest'

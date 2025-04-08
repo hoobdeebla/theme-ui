@@ -1,20 +1,25 @@
-import React, { ComponentPropsWithoutRef } from 'react'
+import {
+  type ComponentPropsWithRef,
+  type IframeHTMLAttributes,
+  type ComponentPropsWithoutRef,
+  forwardRef,
+} from 'react'
 
-import { Box, BoxOwnProps, __isBoxStyledSystemProp } from './Box'
-import { Assign, ForwardRef } from './types'
+import { Box, type BoxOwnProps, __isBoxStyledSystemProp } from './Box'
+import type { Assign, ForwardRef } from './types'
 import { getProps, __internalProps } from './util'
 
 const getContainerProps = getProps(__isBoxStyledSystemProp)
 const getIframeProps = getProps((str) => !__isBoxStyledSystemProp(str))
 
 export interface EmbedProps
-  extends Assign<React.ComponentPropsWithRef<'iframe'>, BoxOwnProps> {
+  extends Assign<ComponentPropsWithRef<'iframe'>, BoxOwnProps> {
   variant?: string
   ratio?: number
-  src?: React.IframeHTMLAttributes<any>['src']
-  frameBorder?: React.IframeHTMLAttributes<any>['frameBorder']
-  allowFullScreen?: React.IframeHTMLAttributes<any>['allowFullScreen']
-  allow?: React.IframeHTMLAttributes<any>['allow']
+  src?: IframeHTMLAttributes<any>['src']
+  frameBorder?: IframeHTMLAttributes<any>['frameBorder']
+  allowFullScreen?: IframeHTMLAttributes<any>['allowFullScreen']
+  allow?: IframeHTMLAttributes<any>['allow']
 }
 
 /**
@@ -24,8 +29,8 @@ export interface EmbedProps
  *
  * @see https://theme-ui.com/components/embed
  */
-export const Embed: ForwardRef<HTMLIFrameElement, EmbedProps> =
-  React.forwardRef(function Embed(
+export const Embed: ForwardRef<HTMLIFrameElement, EmbedProps> = forwardRef(
+  function Embed(
     {
       variant,
       sx,
@@ -83,4 +88,5 @@ export const Embed: ForwardRef<HTMLIFrameElement, EmbedProps> =
         />
       </Box>
     )
-  })
+  }
+)

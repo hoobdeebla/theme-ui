@@ -1,24 +1,30 @@
-import React from 'react'
+import {
+  forwardRef,
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  type ComponentPropsWithRef,
+  type Ref,
+} from 'react'
 
-import { Box as _Box, BoxOwnProps, BoxProps } from './Box'
+import { Box as _Box, type BoxOwnProps, type BoxProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
-const Box = _Box as React.ForwardRefExoticComponent<
-  BoxProps & React.RefAttributes<HTMLButtonElement>
+const Box = _Box as ForwardRefExoticComponent<
+  BoxProps & RefAttributes<HTMLButtonElement>
 >
 
 export interface ButtonProps
-  extends Assign<React.ComponentPropsWithRef<'button'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'button'>, BoxOwnProps> {}
 /**
  * Primitive button component with variants
  * @see https://theme-ui.com/components/button
  */
-export const Button: ForwardRef<HTMLButtonElement, ButtonProps> =
-  React.forwardRef(function Button(props, ref) {
+export const Button: ForwardRef<HTMLButtonElement, ButtonProps> = forwardRef(
+  function Button(props, ref) {
     return (
       <Box
-        ref={ref as React.Ref<HTMLButtonElement>}
+        ref={ref as Ref<HTMLButtonElement>}
         as="button"
         variant="primary"
         {...(props as BoxProps)}
@@ -41,4 +47,5 @@ export const Button: ForwardRef<HTMLButtonElement, ButtonProps> =
         })}
       />
     )
-  })
+  }
+)

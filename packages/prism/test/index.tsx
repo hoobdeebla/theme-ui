@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import React from 'react'
 import renderer from 'react-test-renderer'
 import Prism from '../src'
 
@@ -10,7 +9,7 @@ const CODE = `
   console.log('hello, world!')
 `
 
-const render = (el: typeof renderer.create.arguments[0]) =>
+const render = (el: (typeof renderer.create.arguments)[0]) =>
   renderer.create(el).toJSON()
 
 test('renders a code block', () => {
@@ -43,7 +42,7 @@ test('highlights inline comment', () => {
 
 const HIGHLIGHT_START_END = `
   // highlight-start
- console.log('hello, world!') 
+ console.log('hello, world!')
  // highlight-end
  let other = "no highlight"
 `
@@ -58,7 +57,7 @@ test('highlight start and end', () => {
 
 const NO_HIGHLIGHT = `
   // highlight-start
- console.log('hello, world!') 
+ console.log('hello, world!')
 `
 
 test('no highlight', () => {
@@ -74,7 +73,7 @@ const MULTIPLE_HIGHLIGHTS_START_END = `
 
   // no highlight here ...
 
-  // highlight-start 
+  // highlight-start
   // i am highlighted, and
   // so am i!
   // highlight-end

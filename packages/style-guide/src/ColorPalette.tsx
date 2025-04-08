@@ -1,5 +1,7 @@
+import type { ReactElement, ReactNode } from 'react'
+
 import { useTheme } from './context'
-import ColorSwatch, { ColorSwatchProps } from './ColorSwatch'
+import ColorSwatch, { type ColorSwatchProps } from './ColorSwatch'
 
 const join = (...args: unknown[]) => args.filter(Boolean).join('.')
 
@@ -9,11 +11,11 @@ export interface ColorRowProps extends Omit<ColorSwatchProps, 'color'> {
   name?: string
   omit?: string[]
   render?: (value: {
-    swatch: React.ReactElement
+    swatch: ReactElement
     color: string
     key: string
     name: string
-  }) => React.ReactNode
+  }) => ReactNode
   size?: number | string
 }
 export const ColorRow = ({
@@ -23,57 +25,55 @@ export const ColorRow = ({
   render,
   size,
   ...props
-}: ColorRowProps) => {
-  return (
-    <div>
-      <div
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-        }}
-      >
-        {Object.keys(colors).map((key) => {
-          const color = colors[key]
-          if (!color || omit.includes(key)) return false
-          const id = join(name, key)
-          if (typeof color === 'object') {
-            return (
-              <ColorRow
-                {...props}
-                key={key}
-                name={id}
-                colors={color as Colors}
-                size={size}
-                omit={omit}
-              />
-            )
-          }
-          const swatch = (
-            <ColorSwatch
+}: ColorRowProps) => (
+  <div>
+    <div
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+      }}
+    >
+      {Object.keys(colors).map((key) => {
+        const color = colors[key]
+        if (!color || omit.includes(key)) return false
+        const id = join(name, key)
+        if (typeof color === 'object') {
+          return (
+            <ColorRow
               {...props}
               key={key}
               name={id}
-              color={id}
+              colors={color as Colors}
               size={size}
-              sx={{
-                m: 2,
-              }}
+              omit={omit}
             />
           )
-          if (typeof render === 'function') {
-            return render({
-              swatch,
-              color,
-              key,
-              name: id,
-            })
-          }
-          return swatch
-        })}
-      </div>
+        }
+        const swatch = (
+          <ColorSwatch
+            {...props}
+            key={key}
+            name={id}
+            color={id}
+            size={size}
+            sx={{
+              m: 2,
+            }}
+          />
+        )
+        if (typeof render === 'function') {
+          return render({
+            swatch,
+            color,
+            key,
+            name: id,
+          })
+        }
+        return swatch
+      })}
     </div>
-  )
-}
+  </div>
+)
 
 export interface ColorPaletteProps extends Omit<ColorRowProps, 'colors'> {
   omit?: string[]

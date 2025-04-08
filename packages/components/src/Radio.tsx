@@ -1,7 +1,7 @@
-import React from 'react'
+import { Fragment, type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps } from './Box'
-import { SVG, SVGProps } from './SVG'
+import { Box, type BoxOwnProps } from './Box'
+import { SVG, type SVGProps } from './SVG'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -18,7 +18,7 @@ const RadioUnchecked = (props: SVGProps) => (
 )
 
 const RadioIcon = (props: SVGProps) => (
-  <React.Fragment>
+  <Fragment>
     <RadioChecked
       {...props}
       {...__internalProps({
@@ -41,11 +41,11 @@ const RadioIcon = (props: SVGProps) => (
         },
       })}
     />
-  </React.Fragment>
+  </Fragment>
 )
 
 export interface RadioProps
-  extends Assign<React.ComponentPropsWithRef<'input'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'input'>, BoxOwnProps> {}
 /**
  * Form radio input component
  *
@@ -53,7 +53,7 @@ export interface RadioProps
  * component uses the `theme.forms.radio variant` by default.
  * @see https://theme-ui.com/components/radio/
  */
-export const Radio: ForwardRef<HTMLInputElement, RadioProps> = React.forwardRef(
+export const Radio: ForwardRef<HTMLInputElement, RadioProps> = forwardRef(
   function Radio({ className, sx, variant = 'radio', ...props }, ref) {
     return (
       <Box sx={{ minWidth: 'min-content' }}>

@@ -1,4 +1,4 @@
-import TypeStyle, { TypeStyleProps } from './TypeStyle'
+import TypeStyle, { type TypeStyleProps } from './TypeStyle'
 
 export const HeadingStyle = (props: TypeStyleProps) => (
   <TypeStyle

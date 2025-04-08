@@ -1,7 +1,7 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
 import { AspectRatio } from './AspectRatio'
-import { Image, ImageProps } from './Image'
+import { Image, type ImageProps } from './Image'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -13,7 +13,7 @@ export interface AspectImageProps extends ImageProps {
  * @see https://theme-ui.com/components/aspect-image
  */
 export const AspectImage: ForwardRef<HTMLImageElement, AspectImageProps> =
-  React.forwardRef(function AspectImage({ ratio, ...props }, ref) {
+  forwardRef(function AspectImage({ ratio, ...props }, ref) {
     return (
       <AspectRatio ratio={ratio}>
         <Image

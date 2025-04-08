@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import {
   jsx,
   type ThemeUIStyleObject,
@@ -11,10 +12,8 @@ export interface GlobalProps {
 }
 const Global = ({ styles }: GlobalProps): JSX.Element =>
   jsx(EmotionGlobal, {
-    styles: (emotionTheme: unknown) => {
-      const theme = emotionTheme as GeneralTheme
-      return css(styles)(theme)
-    },
+    styles: (emotionTheme: unknown) =>
+      css(styles)(emotionTheme as GeneralTheme),
   })
 
 export default Global

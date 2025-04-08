@@ -5,12 +5,12 @@
 import renderer from 'react-test-renderer'
 import { render, fireEvent, cleanup, act } from '@theme-ui/test-utils'
 import { matchers } from '@emotion/jest'
-import mockConsole, { RestoreConsole } from 'jest-mock-console'
+import mockConsole, { type RestoreConsole } from 'jest-mock-console'
 import packageInfo from '@emotion/react/package.json'
 
 import {
-  ThemeUIContextValue,
-  Theme,
+  type ThemeUIContextValue,
+  type Theme,
   ThemeUIProvider,
   useColorMode,
   useThemeUI,

@@ -3,7 +3,7 @@
  * @jsxImportSource react
  */
 
-import React from 'react'
+import { Fragment, forwardRef } from 'react'
 import { cleanup } from '@testing-library/react'
 import { renderJSON } from '@theme-ui/test-utils'
 import { matchers } from '@emotion/jest'
@@ -14,8 +14,8 @@ import {
   useThemeUI,
   merge,
   ThemeProvider,
-  ThemeUIContextValue,
-  Theme,
+  type ThemeUIContextValue,
+  type Theme,
 } from '../src'
 
 afterEach(cleanup)
@@ -232,7 +232,7 @@ describe('jsx', () => {
 
   test('does not add css prop when not provided', () => {
     jest.spyOn(global.console, 'warn')
-    const json = renderJSON(jsx(React.Fragment, null, 'hi'))
+    const json = renderJSON(jsx(Fragment, null, 'hi'))
     expect(json?.props).toEqual(undefined)
     expect(console.warn).not.toBeCalled()
   })
@@ -285,7 +285,7 @@ describe('merge', () => {
   })
 
   test('does not attempt to merge React components', () => {
-    const h1 = React.forwardRef<HTMLHeadingElement, {}>((props, ref) => (
+    const h1 = forwardRef<HTMLHeadingElement, {}>((props, ref) => (
       // eslint-disable-next-line jsx-a11y/heading-has-content
       <h1 ref={ref} {...props} />
     ))

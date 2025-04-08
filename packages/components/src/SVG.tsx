@@ -1,6 +1,6 @@
-import React, { SVGAttributes } from 'react'
+import { type SVGAttributes, forwardRef } from 'react'
 
-import { Box, BoxOwnProps } from './Box'
+import { Box, type BoxOwnProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 
 export interface SVGProps
@@ -8,19 +8,20 @@ export interface SVGProps
   size?: number | string
 }
 
-export const SVG: ForwardRef<SVGSVGElement, SVGProps> = React.forwardRef(
-  function SVG({ size = 24, ...rest }, ref) {
-    const svgProps: SVGProps = {
-      xmlns: 'http://www.w3.org/2000/svg',
-      width: size,
-      height: size,
-      viewBox: '0 0 24 24',
-      fill: 'currentcolor',
-      ...rest,
-    }
-
-    return <Box ref={ref} as="svg" {...(svgProps as {})} />
+export const SVG: ForwardRef<SVGSVGElement, SVGProps> = forwardRef(function SVG(
+  { size = 24, ...rest },
+  ref
+) {
+  const svgProps: SVGProps = {
+    xmlns: 'http://www.w3.org/2000/svg',
+    width: size,
+    height: size,
+    viewBox: '0 0 24 24',
+    fill: 'currentcolor',
+    ...rest,
   }
-)
+
+  return <Box ref={ref} as="svg" {...(svgProps as {})} />
+})
 
 SVG.displayName = 'SVG'

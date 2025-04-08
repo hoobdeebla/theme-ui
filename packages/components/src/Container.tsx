@@ -1,6 +1,6 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { Box, BoxProps } from './Box'
+import { Box, type BoxProps } from './Box'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -13,8 +13,8 @@ export type ContainerProps = BoxProps
  * The Container component uses `theme.layout.container` as its default variant style.
  * @see https://theme-ui.com/components/container
  */
-export const Container: ForwardRef<HTMLDivElement, ContainerProps> =
-  React.forwardRef(function Container(props, ref) {
+export const Container: ForwardRef<HTMLDivElement, ContainerProps> = forwardRef(
+  function Container(props, ref) {
     return (
       <Box
         ref={ref}
@@ -30,4 +30,5 @@ export const Container: ForwardRef<HTMLDivElement, ContainerProps> =
         })}
       />
     )
-  })
+  }
+)

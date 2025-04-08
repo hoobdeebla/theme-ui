@@ -1,6 +1,6 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { IconButton, IconButtonProps } from './IconButton'
+import { IconButton, type IconButtonProps } from './IconButton'
 import type { ForwardRef } from './types'
 
 export const MenuIcon = ({ size = 24 }) => {
@@ -31,7 +31,7 @@ export type MenuButtonProps = IconButtonProps
  * @see https://theme-ui.com/components/menu-button
  */
 export const MenuButton: ForwardRef<HTMLButtonElement, MenuButtonProps> =
-  React.forwardRef(function MenuButton(props, ref) {
+  forwardRef(function MenuButton(props, ref) {
     return (
       <IconButton
         ref={ref}

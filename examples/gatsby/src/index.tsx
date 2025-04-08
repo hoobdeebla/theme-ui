@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { ThemeUIProvider } from 'theme-ui'
 import { Themed, useThemedStylesWithMdx } from '@theme-ui/mdx'
 import { MDXProvider, useMDXComponents } from '@mdx-js/react'

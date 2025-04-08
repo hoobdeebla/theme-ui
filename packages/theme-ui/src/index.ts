@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import { jsx as coreJsx } from '@theme-ui/core'
 import type { ThemeUIJSX, ThemeUIStyleObject } from '@theme-ui/core'
 import type { Theme } from '@theme-ui/core'

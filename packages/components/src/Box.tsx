@@ -1,17 +1,17 @@
 import {
-  ArrayInterpolation,
-  CSSObject,
-  Interpolation,
+  type ArrayInterpolation,
+  type CSSObject,
+  type Interpolation,
   useTheme,
 } from '@emotion/react'
-import React, { forwardRef } from 'react'
+import { type ElementType, type ComponentPropsWithRef, forwardRef } from 'react'
 import {
   css,
   get,
-  ThemeUICSSProperties,
-  ThemeUIStyleObject,
+  type ThemeUICSSProperties,
+  type ThemeUIStyleObject,
 } from '@theme-ui/css'
-import { Theme } from '@theme-ui/core'
+import type { Theme } from '@theme-ui/core'
 import type { Assign, ForwardRef } from './types'
 import type { __ThemeUIComponentsInternalProps } from './util'
 
@@ -56,17 +56,14 @@ type BoxSystemPropsKeys = (typeof boxSystemProps)[number]
 type BoxSystemProps = Pick<ThemeUICSSProperties, BoxSystemPropsKeys>
 
 export interface BoxOwnProps extends BoxSystemProps {
-  as?: React.ElementType
+  as?: ElementType
   variant?: string
   css?: Interpolation<any>
   sx?: ThemeUIStyleObject<Theme>
 }
 
 export interface BoxProps
-  extends Omit<
-    Assign<React.ComponentPropsWithRef<'div'>, BoxOwnProps>,
-    'ref'
-  > {}
+  extends Omit<Assign<ComponentPropsWithRef<'div'>, BoxOwnProps>, 'ref'> {}
 
 /**
  * @internal

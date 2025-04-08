@@ -3,10 +3,15 @@
  * @jsxImportSource ../src
  */
 /* eslint-disable no-lone-blocks */
-import { renderJSON, NotHas, Assert, expecter } from '@theme-ui/test-utils'
+import {
+  renderJSON,
+  type NotHas,
+  type Assert,
+  expecter,
+} from '@theme-ui/test-utils'
 import { matchers } from '@emotion/jest'
 
-import { SxProp, ThemeProvider, ThemeUIJSX } from '../src'
+import { type SxProp, ThemeProvider, type ThemeUIJSX } from '../src'
 
 expect.extend(matchers)
 

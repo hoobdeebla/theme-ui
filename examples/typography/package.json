@@ -11,24 +11,25 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "@mdx-js/react": "^2.3.0",
-    "gatsby": "^5",
-    "gatsby-plugin-google-fonts": "^1.0.0",
-    "gatsby-plugin-mdx": "^5",
-    "gatsby-source-filesystem": "^5.10.0",
-    "lodash.merge": "^4.6.1",
-    "react": "^18.1.0",
-    "react-dom": "^18",
+    "@mdx-js/react": "^3.1.1",
+    "gatsby": "^5.16.1",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-mdx": "^5.16.0",
+    "gatsby-source-filesystem": "^5.16.0",
+    "lodash": "^4.18.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "theme-ui": "workspace:^",
     "theme-ui-typography": "^0.1.7",
     "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
-    "@types/lodash.merge": "^4.6.7",
-    "@types/react": "^18.2.12",
-    "babel-eslint": "^10",
-    "eslint": "^8.56.0",
-    "graphql": "^15",
-    "typescript": "^5"
+    "@babel/core": "^7.29.0",
+    "@babel/eslint-parser": "^7.28.6",
+    "@types/lodash": "^4.17.24",
+    "@types/react": "^19.2.14",
+    "eslint": "^10.2.1",
+    "graphql": "^16.13.2",
+    "typescript": "^6.0.3"
   }
 }

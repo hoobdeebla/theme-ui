@@ -1,5 +1,5 @@
 import pluralize from 'pluralize'
-import { Theme } from '@theme-ui/css'
+import type { Theme } from '@theme-ui/css'
 
 // Simplified validator based on spec https://www.w3.org/TR/CSS22/syndata.html#value-def-identifier
 // Does not check for "cannot start with a digit, two hyphens, or a hyphen followed by a digit"

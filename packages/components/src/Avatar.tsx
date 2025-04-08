@@ -1,6 +1,6 @@
-import React from 'react'
+import { forwardRef } from 'react'
 
-import { Image, ImageProps } from './Image'
+import { Image, type ImageProps } from './Image'
 import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
@@ -8,8 +8,8 @@ export interface AvatarProps extends ImageProps {
   size?: number | string
 }
 
-export const Avatar: ForwardRef<HTMLImageElement, AvatarProps> =
-  React.forwardRef(function Avatar({ size = 48, ...props }, ref) {
+export const Avatar: ForwardRef<HTMLImageElement, AvatarProps> = forwardRef(
+  function Avatar({ size = 48, ...props }, ref) {
     return (
       <Image
         ref={ref}
@@ -24,4 +24,5 @@ export const Avatar: ForwardRef<HTMLImageElement, AvatarProps> =
         })}
       />
     )
-  })
+  }
+)

@@ -9,16 +9,16 @@
   "scripts": {},
   "dependencies": {
     "@theme-ui/css": "workspace:^",
-    "@types/compass-vertical-rhythm": "^1.4.2",
-    "@types/modularscale": "^2.0.0",
-    "@types/typography": "^0.16.4",
+    "@types/compass-vertical-rhythm": "^1.4.5",
+    "@types/modularscale": "^2.0.3",
+    "@types/typography": "^0.16.9",
     "compass-vertical-rhythm": "^1.4.5",
-    "csstype": "^3.0.10",
+    "csstype": "^3.2.3",
     "modularscale": "^2.0.1",
-    "type-fest": "^2.18.0"
+    "type-fest": "^5.6.0"
   },
   "devDependencies": {
-    "typography": "^0.16.21",
+    "typography": "^0.16.24",
     "typography-theme-alton": "^0.16.19",
     "typography-theme-anonymous": "^0.15.10",
     "typography-theme-bootstrap": "^0.16.19",

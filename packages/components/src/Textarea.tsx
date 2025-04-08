@@ -1,11 +1,11 @@
-import React from 'react'
+import { type ComponentPropsWithRef, forwardRef } from 'react'
 
-import { Box, BoxOwnProps, BoxProps } from './Box'
+import { Box, type BoxOwnProps, type BoxProps } from './Box'
 import type { Assign, ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export interface TextareaProps
-  extends Assign<React.ComponentPropsWithRef<'textarea'>, BoxOwnProps> {}
+  extends Assign<ComponentPropsWithRef<'textarea'>, BoxOwnProps> {}
 
 /**
  * Form textarea component
@@ -15,7 +15,7 @@ export interface TextareaProps
  * @see https://theme-ui.com/components/textarea/
  */
 export const Textarea: ForwardRef<HTMLTextAreaElement, TextareaProps> =
-  React.forwardRef(function Textarea(props, ref) {
+  forwardRef(function Textarea(props, ref) {
     return (
       <Box
         ref={ref}

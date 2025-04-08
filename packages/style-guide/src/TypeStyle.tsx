@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import type { ComponentProps } from 'react'
 import Card from './Card'
 
 export interface TypeStyleProps extends ComponentProps<typeof Card> {
@@ -16,26 +16,24 @@ export const TypeStyle = ({
   children = 'Aa',
   truncate = true,
   ...props
-}: TypeStyleProps) => {
-  return (
-    <Card
-      {...props}
-      children={children}
-      sx={{
-        fontFamily,
-        fontSize,
-        lineHeight,
-        fontWeight,
-        ...(truncate
-          ? {
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }
-          : {}),
-      }}
-    />
-  )
-}
+}: TypeStyleProps) => (
+  <Card
+    {...props}
+    children={children}
+    sx={{
+      fontFamily,
+      fontSize,
+      lineHeight,
+      fontWeight,
+      ...(truncate
+        ? {
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }
+        : {}),
+    }}
+  />
+)
 
 export default TypeStyle

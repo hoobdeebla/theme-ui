@@ -1,11 +1,15 @@
-import React from 'react'
+import {
+  type ComponentPropsWithRef,
+  type ReactElement,
+  forwardRef,
+} from 'react'
 
-import { get, ThemeUICSSObject } from '@theme-ui/css'
+import { get, type ThemeUICSSObject } from '@theme-ui/css'
 
-import { Box, BoxOwnProps, BoxProps } from './Box'
-import { SVG, SVGProps } from './SVG'
+import { Box, type BoxOwnProps, type BoxProps } from './Box'
+import { SVG, type SVGProps } from './SVG'
 import { getMargin, omitMargin, __internalProps } from './util'
-import { Assign, ForwardRef } from './types'
+import type { Assign, ForwardRef } from './types'
 
 const DownArrow = (props: SVGProps) => (
   <SVG {...props}>
@@ -14,8 +18,8 @@ const DownArrow = (props: SVGProps) => (
 )
 
 export interface SelectProps
-  extends Assign<React.ComponentPropsWithRef<'select'>, BoxOwnProps> {
-  arrow?: React.ReactElement
+  extends Assign<ComponentPropsWithRef<'select'>, BoxOwnProps> {
+  arrow?: ReactElement
 }
 
 /**
@@ -23,8 +27,8 @@ export interface SelectProps
  * and the component uses the `theme.forms.select` variant by default.
  * @see https://theme-ui.com/components/select/
  */
-export const Select: ForwardRef<HTMLSelectElement, SelectProps> =
-  React.forwardRef(function Select({ arrow, ...props }, ref) {
+export const Select: ForwardRef<HTMLSelectElement, SelectProps> = forwardRef(
+  function Select({ arrow, ...props }, ref) {
     const __css: ThemeUICSSObject = {
       display: 'block',
       width: '100%',
@@ -64,4 +68,5 @@ export const Select: ForwardRef<HTMLSelectElement, SelectProps> =
         )}
       </Box>
     )
-  })
+  }
+)

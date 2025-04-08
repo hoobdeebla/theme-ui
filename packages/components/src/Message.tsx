@@ -1,8 +1,8 @@
-import React from 'react'
-import { ThemeUICSSObject } from '@theme-ui/css'
+import { forwardRef } from 'react'
+import type { ThemeUICSSObject } from '@theme-ui/css'
 
-import { Box, BoxProps } from './Box'
-import { ForwardRef } from './types'
+import { Box, type BoxProps } from './Box'
+import type { ForwardRef } from './types'
 import { __internalProps } from './util'
 
 export type MessageProps = BoxProps
@@ -13,8 +13,8 @@ export type MessageProps = BoxProps
  * Message variants can be defined in the theme.messages object.
  * @see https://theme-ui.com/components/message
  */
-export const Message: ForwardRef<HTMLDivElement, MessageProps> =
-  React.forwardRef(function Message(props, ref) {
+export const Message: ForwardRef<HTMLDivElement, MessageProps> = forwardRef(
+  function Message(props, ref) {
     const __css: ThemeUICSSObject = {
       padding: 3,
       paddingLeft: (t) => t.space && Number(t.space[3]) - Number(t.space[1]),
@@ -32,4 +32,5 @@ export const Message: ForwardRef<HTMLDivElement, MessageProps> =
         {...__internalProps({ __themeKey: 'messages', __css })}
       />
     )
-  })
+  }
+)

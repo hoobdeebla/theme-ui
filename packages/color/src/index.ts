@@ -1,5 +1,5 @@
 import * as P from 'polished'
-import { ColorModesScale, get, Theme } from '@theme-ui/css'
+import { type ColorModesScale, get, type Theme } from '@theme-ui/css'
 
 type Color = ColorModesScale[string]
 

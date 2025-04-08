@@ -1,9 +1,8 @@
-/** @jsxImportSource react */
-import * as React from 'react'
+import type { ReactElement, JSXElementConstructor } from 'react'
 import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import * as tsSnippet from 'ts-snippet'
-import { Theme, ThemeUIProvider } from 'theme-ui'
+import { type Theme, ThemeUIProvider } from 'theme-ui'
 
 export * from '@testing-library/react'
 
@@ -25,9 +24,7 @@ export const renderHook = <T,>(
   options: { theme?: Theme } = {}
 ): {
   unmount: () => void
-  rerender: (
-    ui: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  ) => void
+  rerender: (ui: ReactElement<any, string | JSXElementConstructor<any>>) => void
   readonly result: NonNullable<T>
 } => {
   let value: T | undefined = undefined
